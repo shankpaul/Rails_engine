@@ -1,0 +1,31 @@
+<p id="notice"><%= notice %></p>
+
+<h1>Absents</h1>
+
+<table>
+  <thead>
+    <tr>
+      <th>Employee</th>
+      <th>From</th>
+      <th>To</th>
+      <th colspan="3"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @absents.each do |absent| %>
+      <tr>
+        <td><%= absent.employee_id %></td>
+        <td><%= absent.from %></td>
+        <td><%= absent.to %></td>
+        <td><%= link_to 'Show', absent %></td>
+        <td><%= link_to 'Edit', edit_absent_path(absent) %></td>
+        <td><%= link_to 'Destroy', absent, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+<%= link_to 'New Absent', new_absent_path %>
