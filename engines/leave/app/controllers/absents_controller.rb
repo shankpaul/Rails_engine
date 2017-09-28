@@ -1,5 +1,5 @@
 class AbsentsController < ApplicationController
-  bofore_filter :authenticate_module
+  before_filter :authenticate_module
   before_action :set_absent, only: [:show, :edit, :update, :destroy]
 
   # GET /absents
@@ -58,6 +58,6 @@ class AbsentsController < ApplicationController
     end
 
     def authenticate_module
-      
+      raise StandardError.new unless company_modules.include?"Leave"
     end
 end
